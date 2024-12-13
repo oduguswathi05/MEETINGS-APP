@@ -1,0 +1,42 @@
+
+<div class="body p-3 mb-3">
+    <h1>Search for meetings</h1>
+    <hr/>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <select id="date" name="date" class="form-control" [(ngModel)]="searchParamOption">
+            <option value="present">TODAY</option>
+            <option value="all">ALL</option>
+            <option value="past">PAST</option>
+            <option value="future">UPCOMING</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="searchfor" class="form-label">Search for</label>
+        <textarea id="searchfor" name="searchfor" placeholder="Search using words which describe the meeting" class="form-control" [(ngModel)]="searchParamInput"></textarea>
+    </div>
+    <div>
+        <button class="btn btn-primary" style="color: white;"(click)="searchMeeting()">Search</button>
+    </div>
+</div>
+
+<div>
+    <h2>Meetings matching search criteria</h2>
+    <ul class="list-group">
+        <li class="list-group-item">
+          <h3>12 December 2024</h3><span>10:00 - 11:00</span>
+          <div>Project Kickoff</div>
+          <button value="submit" class="btn btn-danger">Excuse yourself</button>
+          <hr/>
+          <h4>Attendees:</h4>
+        </li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div class="card">
+        hello
+    </div>
+</div>
+

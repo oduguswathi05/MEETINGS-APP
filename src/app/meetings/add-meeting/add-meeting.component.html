@@ -1,0 +1,45 @@
+<form #newMeeting="ngForm" (ngSubmit)="newMeetings(newMeeting)" class="body p-3">
+    <h1>Add a New Meeting</h1>
+    <hr />
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-control" ngModel #name="ngModel"/>
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" id="date" name="date" class="form-control" ngModel #date="ngModel"/>
+    </div>
+    <div class="mb-3">
+        <label for="st" >Start time (hh:mm)</label>
+        <br/>
+        <span>
+            <input type="number" name="st1" id="st1" ngModel #st1="ngModel"/>
+        </span>
+        :
+        <span>
+            <input type="number" name="st2" id="st2" ngModel #st2="ngModel"/>
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="et">End time (hh:mm)</label>
+        <br/>
+        <span>
+            <input type="number" name="et1" id="et1" ngModel #et1="ngModel"/>
+        </span>
+        :
+        <span>
+            <input type="number" name="et2" id="et2" ngModel #et2="ngModel"/>
+        </span>    
+    </div>
+    <div class="mb-3">
+        <label for="des" class="form-label">Description</label>
+        <textarea id="des" name="des" class="form-control" placeholder="What is agenda of the meeting?" ngModel #des="ngModel"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="attendees" class="form-label">EmailIDs of attendees, or team's short</label>
+        <input type="text" id="attendees" name="attendees" class="form-control" placeholder="john@example.com,@annual-day" ngModel #attendees="ngModel" />
+    </div>
+    <button value="submit" class="btn btn-primary">Add meeting</button>
+    <div *ngIf="message" class="message">{{ message }}</div>
+
+</form>

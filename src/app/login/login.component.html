@@ -1,0 +1,23 @@
+<div class="container">
+<form  #loginDetails="ngForm" (ngSubmit)="login(loginDetails)" class="card p-3 mt-3">
+    <h1>Login</h1>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" placeholder="Enter Your Email" class="form-control"[(ngModel)]="email" required/>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" placeholder="Enter Your Password" class="form-control" [(ngModel)]="password" required/>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;" [disabled]="loginDetails.invalid">Login</button>
+    </div>
+    <div class="p-3">
+        <span>New User?</span><a routerLink="/register">Register</a>
+    </div>
+</form>
+</div>
+
