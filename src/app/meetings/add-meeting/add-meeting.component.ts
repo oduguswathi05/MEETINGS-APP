@@ -16,14 +16,14 @@ export class AddMeetingComponent {
   constructor(private meetingsService: MeetingsService) {}
 
   newMeetings(newMeeting: NgForm) {
-    console.log(newMeeting);
+    
     const details = newMeeting.value;
 
-    // if (details.attendees) {
-    //   details.attendees = details.attendees
-    //     .split(',')
-    //     .map((email: string) => email.trim());
-    // }  
+    if (details.attendees) {
+      details.attendees = details.attendees
+        .split(',')
+        .map((email: string) => email.trim());
+    }  
 
     
 
@@ -41,8 +41,7 @@ export class AddMeetingComponent {
       description: details.description,
       attendees:details.attendees,
     };
-    console.log(formAdd);
-
+    console.log(formAdd)
     this.meetingsService.addMeeting(formAdd).subscribe({
       next: (data: IMeeting) => {
         console.log(data);
