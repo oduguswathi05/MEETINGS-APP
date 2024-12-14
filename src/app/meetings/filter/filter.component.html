@@ -22,21 +22,29 @@
 
 <div>
     <h2>Meetings matching search criteria</h2>
-    <ul class="list-group">
+    <div *ngFor="let meeting of meetings">
+    <ul class="list-group mt-2">
         <li class="list-group-item">
-          <h3>12 December 2024</h3><span>10:00 - 11:00</span>
-          <div>Project Kickoff</div>
-          <button value="submit" class="btn btn-danger">Excuse yourself</button>
-          <hr/>
-          <h4>Attendees:</h4>
+          <h5>{{ meeting.date | date: 'mediumDate' }}</h5>
+          <span style="display: inline; margin-left: 10px;">{{ meeting.startTime.hours }}:{{ meeting.startTime.minutes }} - {{ meeting.endTime.hours }}:{{ meeting.endTime.minutes }}</span>
+          <div>{{meeting.name}}</div>
+          <button value="submit" class="btn btn-danger mt-2" (click)="excuse(meeting._id || '')">Excuse yourself</button>
+           <hr/>
+           <h6 style="display: inline;">Attendees:</h6>
+           <span *ngFor="let attendee of meeting.attendees">
+             {{ attendee.email }} , 
+            </span>
+            <div>
+                <select id="mem" name="mem" [(ngModel)]="selectedMemberId">
+                    <option value="" disabled selected>Select member</option>
+                   <option *ngFor="let user of users" [value]="user._id">{{user.email}}</option>
+                </select>
+                <button value="submit" class="btn btn-primary mx-2" (click)="addMember(meeting._id || '',selectedMemberId,getUserEmailById(selectedMemberId))" >Add</button>
+            </div>
+                  
         </li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
+        
     </ul>
-    <div class="card">
-        hello
     </div>
 </div>
 

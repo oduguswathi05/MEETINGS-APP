@@ -1,4 +1,5 @@
 interface IMeeting {
+    _id?:string;
     name: string;            
     description: string;     
     date: string;            
