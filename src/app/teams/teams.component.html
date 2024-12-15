@@ -1,1 +1,24 @@
 <app-home></app-home>
+<div class="p-3">
+    <h1>Teams</h1>
+    <hr/>
+    <p>View and edit teams you are part of</p>
+    <div class="row">
+        <div *ngFor="let team of teams" class="card p-3 mt-2 col-md-3 me-2">
+            <b style="font-size: large;">{{team.name}}</b>
+            <b>{{team.shortName}}</b>
+            <div>{{team.description}}</div>
+            <button value="submit" class="btn btn-danger mt-2" (click)="excuse(team._id || '')">Excuse yourself</button>
+            <hr/>
+            <div *ngFor="let member of team.members">{{member.email}}</div>
+        <div>
+            <select id="mem" name="mem" [(ngModel)]="selectedMemberId">
+                <option value="" disabled selected>Select member</option>
+               <option *ngFor="let user of users" [value]="user._id">{{user.email}}</option>
+            </select>
+            <button value="submit" class="btn btn-primary mx-2" (click)="addMember(team._id || '',selectedMemberId,getUserEmailById(selectedMemberId))" >Add</button>
+        </div>
+    </div>
+    </div>
+    
+</div>

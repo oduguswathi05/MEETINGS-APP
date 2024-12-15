@@ -1,3 +1,24 @@
 <app-home></app-home>
-<h1>Calendar</h1>
-<hr />
+<div class="p-3">
+  <h1>Calendar</h1>
+  <hr />
+  <div class="date-row">
+  
+    <div class="date-selection">
+      <input type="date" name="date" id="date" [(ngModel)]="selectedDate" (change)="onDateChange()" />
+    </div>
+    <div class="selected-date">
+      <b>{{formattedSelectedDate}}</b>
+      
+    </div>
+  </div>
+  <div>
+    <div *ngFor="let meeting of meetings">
+      <b  style="display: block;">{{meeting.name}}</b>
+      <div  style="display: inline;">Attendees: </div>
+      <span *ngFor="let attendee of meeting.attendees">{{attendee.email}},</span>
+    </div>
+  </div>
+</div>
+  
+    

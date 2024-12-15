@@ -64,6 +64,7 @@ export class FilterComponent {
       next:(meeting)=>{
         console.log(meeting)
         console.log("removed successfully")
+        this.meetings = this.meetings.filter((meeting) => meeting._id !== meeting._id);
       }
      })
   }
@@ -77,6 +78,7 @@ export class FilterComponent {
       next:(meeting)=>{
         console.log(meeting)
         console.log("member added successfully")
+        this.meetings.push(meeting)
       }
     })
   }
@@ -85,5 +87,7 @@ export class FilterComponent {
     const user = this.users.find(u => u._id === userId);
     return user ? user.email : '';
   }
+
+  
 
 }

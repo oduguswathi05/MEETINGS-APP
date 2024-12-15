@@ -5,6 +5,7 @@ import { IUser } from './models/IUser';
 import { environment } from '../environments/environment.production';
 import { IMeeting } from './models/IMeeting';
 import { Observable } from 'rxjs';
+import { ITeams } from './models/ITems';
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +69,11 @@ export class MeetingsService {
       }
     });
   }
+
+  getMeetingsByDate(date:string){
+    return this.http.get<IMeeting[]>(`${this.apiUrl}/api/calendar?date=${date}`)
+  }
+
+  
 }
 
